@@ -3,465 +3,262 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NOURISH — Manger sain, partout, à tout moment</title>
-  <meta name="description" content="Des salades ultra fraîches en bocal, disponibles 24/7 via une machine connectée. Sauces originales, recettes renouvelées chaque semaine." />
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Nourish — Salades en bocal</title>
+  <style>
+    :root{
+      --bg: #e3f4c4;
+      --text: #528f2c;
+      --card: rgba(255,255,255,0.55);
+      --stroke: rgba(82,143,44,0.25);
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a{ color: inherit; text-decoration: none; }
+
+    .container{ width:min(1120px, 92vw); margin:0 auto; }
+
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(227,244,196,0.75);
+      border-bottom: 1px solid var(--stroke);
+      z-index: 10;
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 800; letter-spacing: 0.2px;
+    }
+    .dot{
+      width: 12px; height: 12px; border-radius: 99px;
+      background: var(--text);
+      box-shadow: 0 0 0 6px rgba(82,143,44,0.15);
+    }
+    .links{
+      display:flex; gap: 14px; flex-wrap: wrap;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+    .links a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .links a:hover{
+      border-color: var(--stroke);
+      background: rgba(255,255,255,0.35);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    h1{
+      font-size: clamp(34px, 4.2vw, 52px);
+      line-height: 1.05;
+      margin: 6px 0 12px;
+    }
+    .subtitle{
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0 0 18px;
+      opacity: 0.95;
+      max-width: 62ch;
+    }
+    .pills{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 14px;
+    }
+    .pill{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.35);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Sections */
+    section{ padding: 18px 0 26px; }
+    .section-title{
+      display:flex; align-items: baseline; justify-content: space-between;
+      gap: 16px;
+      margin: 0 0 12px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: 0.2px;
+    }
+    .muted{
+      opacity: 0.85;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .media{
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.35);
+      overflow: hidden;
+    }
+    .media img{
+      width: 100%;
+      height: auto;
+      display:block;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0 44px;
+      border-top: 1px solid var(--stroke);
+      margin-top: 20px;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Top Bar -->
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#home" aria-label="NOURISH">
-        <span class="brand__dot"></span>
-        <span class="brand__name">NOURISH</span>
-      </a>
-
-      <nav class="nav" aria-label="Navigation principale">
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Nourish</span>
+      </div>
+      <nav class="links">
         <a href="#concept">Concept</a>
         <a href="#salades">Salades</a>
         <a href="#sauces">Sauces</a>
         <a href="#machine">Machine</a>
-        <a href="#offre">Offre repas</a>
-        <a href="#anti-gaspi">Anti-gaspillage</a>
-        <a href="#contact" class="nav__cta">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="home">
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <div class="pill">Healthy · Ultra frais · 24/7</div>
-          <h1>Manger sain,<br/>partout, à tout moment</h1>
-          <p class="lead">
-            Des salades en bocal prêtes à emporter, disponibles via une
-            <strong>machine connectée</strong> directement dans votre service.
+  <main class="container">
+    <section class="hero" id="concept">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="muted">Salades fraîches • Prêtes à emporter • Bocaux réutilisables</div>
+          <h1>Des salades en bocal, dispo en 30 secondes.</h1>
+          <p class="subtitle">
+            Texte placeholder : explique ici le concept (fraîcheur, recettes gourmandes, retrait simple, retour des bocaux, etc.).
+            On remplira tout ça proprement ensuite.
           </p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#salades">Voir les salades</a>
-            <a class="btn btn--ghost" href="#machine">Découvrir la machine</a>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <div class="stat__value">500g</div>
-              <div class="stat__label">par salade</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">6</div>
-              <div class="stat__label">best-sellers</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">40+</div>
-              <div class="stat__label">recettes au total</div>
-            </div>
+          <div class="pills">
+            <div class="pill">Recettes signatures</div>
+            <div class="pill">Sauces originales</div>
+            <div class="pill">Bocaux consignés</div>
+            <div class="pill">Vending machine</div>
           </div>
         </div>
 
-        <div class="hero__media">
-          <div class="mediaCard">
-            <img src="./assets/hero.jpg" alt="Salades en bocal NOURISH" onerror="this.closest('.mediaCard').classList.add('is-missing')" />
-            <div class="mediaCard__fallback">
-              <div class="fallbackTitle">Ajoute une image</div>
-              <div class="fallbackText">Place un visuel hero dans <code>/assets/hero.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__bg"></div>
-    </section>
-
-    <!-- Concept -->
-    <section id="concept" class="section">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Le concept</h2>
-          <p>Simple, rapide, ultra frais — et des nouveautés chaque semaine.</p>
-        </div>
-
-        <div class="cards3">
-          <article class="card">
-            <h3>1) Je choisis ma salade</h3>
-            <p>Recettes best-sellers + nouvelles recettes régulières (texte provisoire).</p>
-            <ul class="ticks">
-              <li>Salades en bocal prêtes à emporter</li>
-              <li>Portions généreuses</li>
-              <li>Prix accessibles</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>2) Je choisis ma sauce</h3>
-            <p>Des sauces originales pour changer du “classique huile/vinaigre”.</p>
-            <ul class="ticks">
-              <li>6 sauces best-sellers</li>
-              <li>Nouvelles sauces chaque semaine</li>
-              <li>Accords pensés par recette</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>3) Je mixe & je déguste</h3>
-            <p>Je secoue le bocal, je mange directement dedans. Zéro vaisselle.</p>
-            <ul class="ticks">
-              <li>Pratique</li>
-              <li>Hygiénique</li>
-              <li>Nomade</li>
-            </ul>
-          </article>
+        <div class="media" aria-label="Aperçu des salades">
+          <img src="assets/Salades.png" alt="Aperçu des salades en bocal" />
         </div>
       </div>
     </section>
 
-    <!-- Salads -->
-    <section id="salades" class="section section--alt">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Nos salades best-sellers</h2>
-          <p>6 recettes phares (et <strong>40+</strong> au total). Texte ajustable plus tard.</p>
+    <section id="salades">
+      <div class="section-title">
+        <h2>Les salades</h2>
+        <div class="muted">Texte placeholder • ingrédients / calories / prix</div>
+      </div>
+      <div class="media">
+        <img src="assets/Salades.png" alt="Sélection de salades en bocal" />
+      </div>
+    </section>
+
+    <section id="sauces">
+      <div class="section-title">
+        <h2>Les sauces</h2>
+        <div class="muted">Texte placeholder • 6 recettes</div>
+      </div>
+      <div class="media">
+        <img src="assets/Sauces.png" alt="Sélection de sauces en pots carton" />
+      </div>
+    </section>
+
+    <section id="machine">
+      <div class="section-title">
+        <h2>La machine</h2>
+        <div class="muted">Texte placeholder • localisation / fonctionnement</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="media">
+          <img src="assets/Machine.png" alt="Machine à salades et réceptacle bocaux" />
         </div>
-
-        <div class="split">
-          <div class="split__media">
-            <div class="mediaCard mediaCard--wide">
-              <img src="./assets/salads.jpg" alt="Aperçu des salades NOURISH" onerror="this.closest('.mediaCard').classList.add('is-missing')" />
-              <div class="mediaCard__fallback">
-                <div class="fallbackTitle">Ajoute l’aperçu des salades</div>
-                <div class="fallbackText">Place un visuel dans <code>/assets/salads.jpg</code></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="split__content">
-            <div class="grid2">
-              <div class="miniCard">
-                <h3>Chèvre & Miel</h3>
-                <p>Boulgour · Poivrons · Roquette · Chèvre · Sirop d’agave · Graines</p>
-                <div class="tagRow">
-                  <span class="tag">7,50€</span>
-                  <span class="tag tag--soft">Végé</span>
-                </div>
-              </div>
-
-              <div class="miniCard">
-                <h3>Pesto & Serrano</h3>
-                <p>Boulgour · Pesto · Concombre · Tomates cerises · Tomates séchées · Olives noires · Serrano · Roquette</p>
-                <div class="tagRow">
-                  <span class="tag">7,50€</span>
-                  <span class="tag tag--soft">Protéiné</span>
-                </div>
-              </div>
-
-              <div class="miniCard">
-                <h3>Caprese</h3>
-                <p>Boulgour · Pesto · Tomates cerises · Tomates séchées · Mozzarella · Roquette · Basilic · Graines</p>
-                <div class="tagRow">
-                  <span class="tag">8€</span>
-                  <span class="tag tag--soft">Frais</span>
-                </div>
-              </div>
-
-              <div class="miniCard">
-                <h3>Falafels & Fêta</h3>
-                <p>Carottes râpées · Maïs · Concombres · Tomates cerises · Falafels · Fêta</p>
-                <div class="tagRow">
-                  <span class="tag">8,50€</span>
-                  <span class="tag tag--soft">Gourmand</span>
-                </div>
-              </div>
-
-              <div class="miniCard">
-                <h3>Lentilles & Halloumi</h3>
-                <p>Lentilles · Courgettes · Poivrons · Oignons · Halloumi · Roquette</p>
-                <div class="tagRow">
-                  <span class="tag">8,50€</span>
-                  <span class="tag tag--soft">Satiétant</span>
-                </div>
-              </div>
-
-              <div class="miniCard">
-                <h3>Comté & Avocat</h3>
-                <p>Boulgour · Courgettes · Tomates cerises · Pomme · Comté · Avocat · Granny Smith</p>
-                <div class="tagRow">
-                  <span class="tag">9€</span>
-                  <span class="tag tag--soft">Signature</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="note">
-              <strong>À personnaliser :</strong> tu pourras ajouter macros, allergènes, labels, rotation hebdo, etc.
-            </div>
-          </div>
+        <div class="card">
+          <h3 style="margin:0 0 10px; font-size:18px;">Comment ça marche</h3>
+          <ol style="margin:0; padding-left: 18px; line-height:1.6; font-weight:600;">
+            <li>Choisis ta salade</li>
+            <li>Ajoute une sauce</li>
+            <li>Paye (CB / sans contact)</li>
+            <li>Récupère en bas</li>
+            <li>Dépose le bocal usagé dans le réceptacle</li>
+          </ol>
+          <p style="margin:12px 0 0; opacity:0.9;">
+            Texte placeholder : parle de la consigne, du lavage, de la logistique, etc.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Sauces -->
-    <section id="sauces" class="section">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Nos sauces best-sellers</h2>
-          <p>6 sauces “signature” + des nouveautés chaque semaine.</p>
-        </div>
-
-        <div class="sauceGrid">
-          <div class="sauceCard">
-            <div class="sauceSwatch"></div>
-            <h3>Miel chaud & thym</h3>
-            <p>Douceur + aromatique, parfaite avec chèvre, graines, boulgour.</p>
-          </div>
-          <div class="sauceCard">
-            <div class="sauceSwatch"></div>
-            <h3>Citron confit méditerranéen</h3>
-            <p>Acidulé-salé, top sur caprese, falafels, roquette.</p>
-          </div>
-          <div class="sauceCard">
-            <div class="sauceSwatch"></div>
-            <h3>Tomate rôtie balsamique</h3>
-            <p>Umami + balsamique, marche très bien avec mozzarella & pesto.</p>
-          </div>
-          <div class="sauceCard">
-            <div class="sauceSwatch"></div>
-            <h3>Citron brûlé & yaourt grec</h3>
-            <p>Crémeux-frais, idéal pour lentilles & halloumi, falafels.</p>
-          </div>
-          <div class="sauceCard">
-            <div class="sauceSwatch"></div>
-            <h3>Miel pimenté</h3>
-            <p>Sucré-épicé, super avec serrano, tomates, olives.</p>
-          </div>
-          <div class="sauceCard">
-            <div class="sauceSwatch"></div>
-            <h3>Miso citron vert</h3>
-            <p>Twist moderne, très bon sur avocat, concombre, roquette.</p>
-          </div>
-        </div>
-
-        <div class="mediaRow">
-          <div class="mediaCard mediaCard--wide">
-            <img src="./assets/sauces.jpg" alt="Aperçu des sauces NOURISH" onerror="this.closest('.mediaCard').classList.add('is-missing')" />
-            <div class="mediaCard__fallback">
-              <div class="fallbackTitle">Ajoute l’aperçu des sauces</div>
-              <div class="fallbackText">Place un visuel dans <code>/assets/sauces.jpg</code></div>
-            </div>
-          </div>
-        </div>
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <div class="muted">Texte placeholder</div>
+      </div>
+      <div class="card">
+        <p style="margin:0; font-weight:600; opacity:0.95;">
+          Texte placeholder : email, formulaire, réseaux sociaux, etc.
+        </p>
       </div>
     </section>
 
-    <!-- Machine -->
-    <section id="machine" class="section section--alt">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>La machine connectée</h2>
-          <p>Une expérience fluide, paiement simple, et collecte des bocaux usagés.</p>
-        </div>
-
-        <div class="split split--reverse">
-          <div class="split__media">
-            <div class="mediaCard mediaCard--wide">
-              <img src="./assets/machine.jpg" alt="Machine NOURISH" onerror="this.closest('.mediaCard').classList.add('is-missing')" />
-              <div class="mediaCard__fallback">
-                <div class="fallbackTitle">Ajoute un visuel de la machine</div>
-                <div class="fallbackText">Place un visuel dans <code>/assets/machine.jpg</code></div>
-              </div>
-            </div>
-
-            <div class="mediaCard mediaCard--wide" style="margin-top:14px">
-              <img src="./assets/machine-modes.jpg" alt="Modes de la machine" onerror="this.closest('.mediaCard').classList.add('is-missing')" />
-              <div class="mediaCard__fallback">
-                <div class="fallbackTitle">Ajoute “Mode Salade / Mode Repas”</div>
-                <div class="fallbackText">Place un visuel dans <code>/assets/machine-modes.jpg</code></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="split__content">
-            <div class="card">
-              <h3>Fonctionnalités clés</h3>
-              <ul class="ticks">
-                <li>Écran tactile (texte provisoire)</li>
-                <li>Paiements : CB, Apple Pay, Ticket Resto, Edenred</li>
-                <li>-10% pour le personnel médical (paramétrable)</li>
-                <li>Réceptacle pour bocaux usagés (collecte simplifiée)</li>
-              </ul>
-            </div>
-
-            <div class="card" style="margin-top:14px">
-              <h3>Deux modes</h3>
-              <div class="twoCols">
-                <div>
-                  <strong>Mode Salade</strong>
-                  <p>Agencement optimisé pour maximiser le nombre de salades.</p>
-                </div>
-                <div>
-                  <strong>Mode Repas</strong>
-                  <p>Agencement optimisé pour salades + dessert (formule complète).</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="note">
-              <strong>À ajouter plus tard :</strong> specs techniques, capacité, température, dimensions, etc.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Offre Repas -->
-    <section id="offre" class="section">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Offre repas (salade + dessert)</h2>
-          <p>Un combo complet, frais, et fait maison (texte provisoire).</p>
-        </div>
-
-        <div class="cards3">
-          <article class="card">
-            <h3>Pudding chia</h3>
-            <p>Coulis fruits rouges / mangue (placeholder).</p>
-          </article>
-          <article class="card">
-            <h3>Cakes du chef</h3>
-            <p>Marbré / Banana Bread / Nature (placeholder).</p>
-          </article>
-          <article class="card">
-            <h3>Formule complète</h3>
-            <p>Salade + dessert = repas complet, rapide, pratique.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Anti-waste -->
-    <section id="anti-gaspi" class="section section--alt">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Tous contre le gaspillage</h2>
-          <p>Réductions en cas d’invendus + partenariats pour minimiser les pertes.</p>
-        </div>
-
-        <div class="split">
-          <div class="split__content">
-            <div class="card">
-              <h3>Réductions intelligentes</h3>
-              <p>
-                Mise en place de remises progressives avant péremption.
-                (Texte provisoire — on détaillera la logique plus tard.)
-              </p>
-              <ul class="ticks">
-                <li>Discounts automatiques</li>
-                <li>Traçabilité invendus</li>
-                <li>Partenariats anti-gaspi</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="split__media">
-            <div class="mediaCard mediaCard--wide">
-              <img src="./assets/antiwaste.jpg" alt="Anti-gaspillage" onerror="this.closest('.mediaCard').classList.add('is-missing')" />
-              <div class="mediaCard__fallback">
-                <div class="fallbackTitle">Ajoute un visuel anti-gaspillage</div>
-                <div class="fallbackText">Place un visuel dans <code>/assets/antiwaste.jpg</code></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Contact</h2>
-          <p>Du texte “random” pour l’instant. On le remplacera ensuite.</p>
-        </div>
-
-        <div class="contact">
-          <div class="card">
-            <h3>Parlons-en</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-              Praesent libero. Sed cursus ante dapibus diam.
-            </p>
-
-            <div class="contact__grid">
-              <div class="contact__field">
-                <label>Nom</label>
-                <input placeholder="Votre nom" />
-              </div>
-              <div class="contact__field">
-                <label>Email</label>
-                <input placeholder="vous@domaine.com" />
-              </div>
-              <div class="contact__field contact__field--full">
-                <label>Message</label>
-                <textarea placeholder="Votre message..."></textarea>
-              </div>
-              <button class="btn btn--primary" type="button">Envoyer</button>
-            </div>
-
-            <p class="hint">Formulaire non connecté (placeholder).</p>
-          </div>
-
-          <div class="card">
-            <h3>Infos</h3>
-            <ul class="plain">
-              <li><strong>Disponibilité :</strong> 24/7 (placeholder)</li>
-              <li><strong>Implantation :</strong> services / sites (placeholder)</li>
-              <li><strong>Paiements :</strong> CB, Apple Pay, Ticket Resto, Edenred</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <h3>FAQ</h3>
-            <details>
-              <summary>Comment ça marche ?</summary>
-              <p>Texte provisoire. On détaillera le parcours utilisateur.</p>
-            </details>
-            <details>
-              <summary>Allergènes ?</summary>
-              <p>Texte provisoire. On ajoutera un tableau clair.</p>
-            </details>
-            <details>
-              <summary>Collecte des bocaux ?</summary>
-              <p>Texte provisoire. On expliquera le réceptacle + la logistique.</p>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
+    <footer>
+      <div class="muted">© Nourish — Texte placeholder</div>
+    </footer>
   </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <span class="brand__name">NOURISH</span>
-        <span class="muted">© <span id="year"></span> — Tous droits réservés</span>
-      </div>
-      <div class="footer__right">
-        <a href="#concept">Concept</a>
-        <a href="#salades">Salades</a>
-        <a href="#machine">Machine</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
