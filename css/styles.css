@@ -1,6 +1,6 @@
 :root{
-  --bg: #e3f4c4;
-  --text: #528f2c;
+  --bg:#e3f4c4;
+  --text:#528f2c;
 
   --glass: rgba(255,255,255,.28);
   --glass-border: rgba(82,143,44,.18);
@@ -13,7 +13,7 @@
   --copyA: 1;
 }
 
-*{ box-sizing: border-box; }
+*{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
   margin:0;
@@ -24,7 +24,7 @@ body{
 
 .hero{
   position: relative;
-  min-height: 110vh;            /* gives breathing space for the animation */
+  min-height: 110vh;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -32,7 +32,6 @@ body{
   overflow: hidden;
 }
 
-/* subtle studio gradient + vignette */
 .hero::before{
   content:"";
   position:absolute; inset:-40px;
@@ -40,7 +39,6 @@ body{
     radial-gradient(1200px 700px at 50% 25%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
     radial-gradient(900px 600px at 50% 70%, rgba(82,143,44,.12), rgba(255,255,255,0) 60%);
   pointer-events:none;
-  filter: blur(0px);
   z-index: 0;
 }
 
@@ -55,7 +53,6 @@ body{
   backdrop-filter: blur(10px);
   transform: translateY(calc(var(--p) * -8px));
   opacity: var(--copyA);
-  transition: opacity .15s linear;
 }
 
 .eyebrow{
@@ -78,6 +75,7 @@ body{
   font-size: clamp(16px, 1.6vw, 20px);
   line-height: 1.35;
   opacity: .95;
+  max-width: 65ch;
 }
 
 .hero__visual{
@@ -92,19 +90,13 @@ body{
 .hero__img{
   width: min(520px, 80vw);
   height: auto;
-  transform:
-    translateY(var(--y))
-    scale(var(--scale));
+  transform: translateY(var(--y)) scale(var(--scale));
   filter: blur(var(--blur));
   transform-origin: 50% 65%;
   will-change: transform, filter;
-  /* cleaner than “jerky” transforms */
-  transition: filter .12s linear;
-  /* premium shadow but not too strong */
-  drop-shadow: 0 26px 45px rgba(0,0,0,.12);
+  filter: drop-shadow(0 26px 45px rgba(0,0,0,.12));
 }
 
-/* Next chapter for continuity */
 .chapter{
   min-height: 100vh;
   display:flex;
@@ -119,18 +111,19 @@ body{
   background: rgba(255,255,255,.22);
   border: 1px solid rgba(82,143,44,.14);
 }
+
 .chapter h2{
   margin:0 0 10px;
   font-size: clamp(28px, 3.2vw, 42px);
   letter-spacing: -0.02em;
 }
+
 .chapter p{
   margin:0;
   line-height: 1.55;
   opacity: .95;
 }
 
-/* Desktop layout tweak */
 @media (min-width: 980px){
   .hero{
     grid-template-columns: 1.1fr .9fr;
