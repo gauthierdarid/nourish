@@ -1,77 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nourish</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nourish — Salades en bocal</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <span class="dot"></span><span>Nourish</span>
-      </div>
-      <nav class="links">
-        <a data-nav href="index.html">Accueil</a>
-        <a data-nav href="pages/concept.html">Concept</a>
-        <a data-nav href="pages/menu.html">Menu</a>
-        <a data-nav href="pages/machine.html">Machine</a>
-        <a data-nav href="pages/sauces.html">Sauces</a>
-        <a data-nav href="pages/contact.html">Contact</a>
-      </nav>
+
+  <!-- =========================
+       HERO / INTRO
+  ========================== -->
+  <section class="hero" id="hero">
+
+    <div class="hero__copy">
+      <p class="eyebrow">Salades en bocal</p>
+      <h1 class="headline">Bien manger.<br>Instantanément.</h1>
+      <p class="subhead">
+        Des salades fraîches, complètes et responsables,
+        disponibles à toute heure grâce à nos distributeurs intelligents.
+      </p>
     </div>
-  </header>
 
-  <main class="container">
-    <section class="section">
-      <div class="card">
-        <h1>Salades en bocal, prêtes en 30 secondes.</h1>
-        <p class="sub">Scroll vers le bas : la salade “grandit” / “rétrécit” comme une page Apple. Pour l’instant, on utilise la même photo partout (placeholder).</p>
-      </div>
-    </section>
-  </main>
+    <div class="hero__visual">
+      <img
+        id="heroImg"
+        class="hero__img"
+        src="./assets/TransCaprese.png"
+        alt="Salade en bocal Nourish"
+      />
+    </div>
 
-  <!-- Scroll Showcase -->
-  <section class="showcase" aria-label="Scroll showcase">
-    <div class="showcase-pin">
-      <div class="stage">
-        <div class="hero-visual">
-          <img id="saladHeroImg" src="assets/TransCaprese.png" alt="Salade (placeholder)" />
-        </div>
+  </section>
 
-        <div class="hero-copy">
-          <div class="kicker">Nos recettes</div>
-          <h2 class="title" id="saladTitle">Caprese fraîche</h2>
-          <p class="desc" id="saladDesc">Tomates, mozzarella, roquette. Simple, clean, efficace.</p>
-
-          <div class="dots" aria-label="Progression">
-            <span class="active"></span><span></span><span></span><span></span>
-          </div>
-
-          <div style="margin-top:18px" class="card">
-            <strong>Texte placeholder</strong><br/>
-            Ici on mettra plus tard : ingrédients, macros, prix, allergènes, etc.
-          </div>
-        </div>
-      </div>
+  <!-- =========================
+       CONCEPT
+  ========================== -->
+  <section class="chapter">
+    <div class="chapter__inner">
+      <h2>Le concept</h2>
+      <p>
+        Nourish réinvente la pause déjeuner avec des salades en bocal
+        préparées chaque jour, conservées au frais et accessibles
+        en libre-service via des distributeurs nouvelle génération.
+      </p>
     </div>
   </section>
 
-  <main class="container">
-    <section class="section">
-      <div class="card">
-        <h2 style="margin:0 0 10px;">Suite de page (placeholder)</h2>
-        <p class="sub">On continuera ensuite avec : machine, sauces, localisations, etc.</p>
-      </div>
-    </section>
+  <!-- =========================
+       SALADES
+  ========================== -->
+  <section class="chapter">
+    <div class="chapter__inner">
+      <h2>Les salades</h2>
+      <p>
+        Une gamme de recettes équilibrées, gourmandes et évolutives,
+        conçues pour s’adapter aux saisons et aux goûts de chacun.
+        (Contenu à venir)
+      </p>
+    </div>
+  </section>
 
-    <footer class="footer">
-      © Nourish — placeholder
-    </footer>
-  </main>
+  <!-- =========================
+       SAUCES
+  ========================== -->
+  <section class="chapter">
+    <div class="chapter__inner">
+      <h2>Les sauces signature</h2>
+      <p>
+        Des sauces maison pensées pour sublimer chaque recette :
+        miel chaud & thym, miso citron vert, tomate rôtie balsamique…
+        (Contenu à venir)
+      </p>
+    </div>
+  </section>
 
-  <script src="js/main.js"></script>
-  <script src="js/scrollshowcase.js"></script>
+  <!-- =========================
+       MACHINE
+  ========================== -->
+  <section class="chapter">
+    <div class="chapter__inner">
+      <h2>Le distributeur</h2>
+      <p>
+        Un distributeur réfrigéré intelligent, design et éco-conçu,
+        capable de stocker plusieurs centaines de produits frais
+        tout en garantissant une expérience utilisateur fluide.
+        (Contenu à venir)
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="chapter">
+    <div class="chapter__inner">
+      <h2>Nourish</h2>
+      <p>
+        © Nourish — Tous droits réservés<br>
+        Site en cours de construction.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main JS -->
+  <script src="./js/main.js"></script>
+
 </body>
 </html>
